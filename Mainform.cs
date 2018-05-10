@@ -41,5 +41,21 @@ namespace AutoDomain
         {
 
         }
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            List<string> arKeywords = new List<string>();
+
+            for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
+            {
+                arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
+            }
+
+
+
+            
+
+
+        }
     }
 }

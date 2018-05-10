@@ -275,6 +275,7 @@
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutoDomain";
+            this.Load += new System.EventHandler(this.Mainform_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

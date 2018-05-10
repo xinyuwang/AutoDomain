@@ -42,8 +42,19 @@ namespace AutoDomain
 
         }
 
+
+        private List<String> analyzePadding(string padding)
+        {
+            List<string> ret = new List<string>();
+
+
+
+        }
+        
+
         private void btnQuery_Click(object sender, EventArgs e)
         {
+            //get keywords
             List<string> arKeywords = new List<string>();
 
             for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
@@ -51,9 +62,15 @@ namespace AutoDomain
                 arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
             }
 
+            //get paddingwords
+            List<string> arPadding = new List<string>();
+
+            for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
+            {
+                arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
+            }
 
 
-            
 
 
         }

@@ -124,6 +124,7 @@ namespace AutoDomain
             {
 
                 QueryButtonEnabled = false;
+                QueryProgress = 0;
 
                 //get keywords
                 List<string> arKeywords = new List<string>();
@@ -218,6 +219,7 @@ namespace AutoDomain
                 ShowAnalyseExceptionCallback showAnalyseExceptionCallback = new ShowAnalyseExceptionCallback(ShowAnalyseException);
                 this.Invoke(showAnalyseExceptionCallback, new Object[] { analyseException });
                 QueryButtonEnabled = true;
+                QueryProgress = 0;
             }
 
         }
@@ -241,6 +243,7 @@ namespace AutoDomain
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = ".txt|.txt";
             saveFileDialog.FileOk += SaveFileDialog_FileOk;
+            saveFileDialog.ShowDialog();
         }
 
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)

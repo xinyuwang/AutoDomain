@@ -78,6 +78,7 @@ namespace AutoDomain
         void SetStatusStrip(int iAll, int iCur, int iAvailable)
         {
             staProgress.Text = String.Format("AllCount : {0}  ProcessedNum : {1}  AvailableNum : {2}", iAll, iCur, iAvailable);
+            tsPercent.Text = String.Format("{0}%", iCur * 100 / iAll);
         }
 
 
@@ -134,11 +135,19 @@ namespace AutoDomain
             arPadding = analyzePadding(arPadding);
 
             List<string> arDomains = new List<string>();
-            foreach (string strKeyword in arKeywords)
+            if (arKeywords.Count == 0)
             {
-                foreach (string strPadding in arPadding)
+                //If no keywords
+                arDomains = arPadding;
+            }
+            else
+            {
+                foreach (string strKeyword in arKeywords)
                 {
-                    arDomains.Add(strPadding.Replace("$", strKeyword));
+                    foreach (string strPadding in arPadding)
+                    {
+                        arDomains.Add(strPadding.Replace("$", strKeyword));
+                    }
                 }
             }
 
@@ -177,15 +186,17 @@ namespace AutoDomain
                 {
                     arDomainInfo.Add(domainInfo);
                     iAvailable++;
+                    
+                    //Render to ListView
+                    AddDomainCallback addDomainCallback = AddDomain;
+                    dgvResultView.Invoke(addDomainCallback, new Object[] { domainInfo });
+
                 }
 
                 //update status
                 SetStatusStripCallback setStatusStripCallback = new SetStatusStripCallback(SetStatusStrip);
                 statusBar.Invoke(setStatusStripCallback, new Object[] { arDomainName.Count, iCount, iAvailable });
 
-                //Render to ListView
-                AddDomainCallback addDomainCallback = AddDomain;
-                dgvResultView.Invoke(addDomainCallback, new Object[] { domainInfo });
 
             }
 

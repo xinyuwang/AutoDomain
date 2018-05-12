@@ -49,6 +49,7 @@
             this.tspbQuery = new System.Windows.Forms.ToolStripProgressBar();
             this.staProgress = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsPercent = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDomains.SuspendLayout();
@@ -108,6 +109,8 @@
             this.clbDomainExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.clbDomainExtension.FormattingEnabled = true;
             this.clbDomainExtension.Items.AddRange(new object[] {
+            ".app",
+            ".com",
             ".net",
             ".info",
             ".online",
@@ -129,7 +132,6 @@
             ".store",
             ".mobi",
             ".biz",
-            ".com",
             ".xyz",
             ".love",
             ".ltd",
@@ -306,6 +308,7 @@
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.tspbQuery,
+            this.tsPercent,
             this.toolStripStatusLabel2,
             this.staProgress});
             this.statusBar.Location = new System.Drawing.Point(0, 1004);
@@ -336,6 +339,11 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(45, 20);
             this.toolStripStatusLabel2.Text = "         ";
+            // 
+            // tsPercent
+            // 
+            this.tsPercent.Name = "tsPercent";
+            this.tsPercent.Size = new System.Drawing.Size(0, 20);
             // 
             // Mainform
             // 
@@ -390,6 +398,7 @@
         private System.Windows.Forms.ToolStripProgressBar tspbQuery;
         private System.Windows.Forms.ToolStripStatusLabel staProgress;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel tsPercent;
     }
 }
 

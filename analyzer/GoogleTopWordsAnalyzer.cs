@@ -42,9 +42,9 @@ namespace AutoDomain.analyzer
                         throw new AnalyseException("in [Gn], n must be a number;");
                     }
 
-                    if (iTop <= 0 || iTop > 10000)
+                    if (iTop <= 0 || iTop > 9897)
                     {
-                        throw new AnalyseException("in [Gn], n must between 1 to 10000;");
+                        throw new AnalyseException("in [Gn], n must between 1 to 9897;");
                     }
 
                     try
@@ -63,12 +63,6 @@ namespace AutoDomain.analyzer
                     }
 
                     List<string> arTempResult = new List<string>();
-
-                    //Max 9897 numbers
-                    if (iTop > 9897)
-                    {
-                        throw new AnalyseException("in [Gn], n must be between 1 to 9897;");
-                    }
 
                     //TOP iTop
                     for (int i = 0; i < iTop; i++)

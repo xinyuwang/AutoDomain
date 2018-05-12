@@ -51,8 +51,14 @@ namespace AutoDomain
         delegate void AddDomainCallback(DomainInfo domainInfo);
         delegate void SetQueryButtonEnableCallback(bool state);
         delegate void SetStatusStripCallback(int iAll, int iCur, int iAvailable);
+        delegate void ShowAnalyseExceptionCallback(AnalyseException analyseException);
 
         #endregion
+
+        private void ShowAnalyseException(AnalyseException analyseException)
+        {
+            MessageBox.Show(analyseException.Message, "Analyse Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         private void SetProgress(int iVal)
         {
@@ -75,7 +81,7 @@ namespace AutoDomain
             btnQuery.Enabled = state;
         }
 
-        void SetStatusStrip(int iAll, int iCur, int iAvailable)
+        private void SetStatusStrip(int iAll, int iCur, int iAvailable)
         {
             staProgress.Text = String.Format("AllCount : {0}  ProcessedNum : {1}  AvailableNum : {2}", iAll, iCur, iAvailable);
             tsPercent.Text = String.Format("{0}%", iCur * 100 / iAll);
@@ -113,94 +119,106 @@ namespace AutoDomain
 
         void ThreadProc(Object stateInfo)
         {
-            QueryButtonEnabled = false;
-
-            //get keywords
-            List<string> arKeywords = new List<string>();
-
-            for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
+            try
             {
-                arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
-            }
 
-            //get paddingwords
-            List<string> arPadding = new List<string>();
+                QueryButtonEnabled = false;
 
-            for (int i = 0; i < rtbPaddingwords.Lines.Count(); i++)
-            {
-                arPadding.AddRange(rtbPaddingwords.Lines[i].Split(' '));
-            }
+                //get keywords
+                List<string> arKeywords = new List<string>();
 
-            //process padding words
-            arPadding = analyzePadding(arPadding);
-
-            List<string> arDomains = new List<string>();
-            if (arKeywords.Count == 0)
-            {
-                //If no keywords
-                arDomains = arPadding;
-            }
-            else
-            {
-                foreach (string strKeyword in arKeywords)
+                for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
                 {
-                    foreach (string strPadding in arPadding)
+                    arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
+                }
+
+                //get paddingwords
+                List<string> arPadding = new List<string>();
+
+                for (int i = 0; i < rtbPaddingwords.Lines.Count(); i++)
+                {
+                    arPadding.AddRange(rtbPaddingwords.Lines[i].Split(' '));
+                }
+
+                //process padding words
+                arPadding = analyzePadding(arPadding);
+
+                List<string> arDomains = new List<string>();
+                if (arKeywords.Count == 0)
+                {
+                    //If no keywords
+                    arDomains = arPadding;
+                }
+                else
+                {
+                    foreach (string strKeyword in arKeywords)
                     {
-                        arDomains.Add(strPadding.Replace("$", strKeyword));
+                        foreach (string strPadding in arPadding)
+                        {
+                            arDomains.Add(strPadding.Replace("$", strKeyword));
+                        }
                     }
                 }
-            }
 
-            //get all extension
-            List<string> arExtension = new List<string>();
-            for (int i = 0; i < clbDomainExtension.Items.Count; i++)
-            {
-                if (clbDomainExtension.GetItemChecked(i))
+                //get all extension
+                List<string> arExtension = new List<string>();
+                for (int i = 0; i < clbDomainExtension.Items.Count; i++)
                 {
-                    arExtension.Add(clbDomainExtension.GetItemText(clbDomainExtension.Items[i]));
-                }
-            }
-
-            //get all full domain name
-            List<string> arDomainName = new List<string>();
-            foreach (string strExtension in arExtension)
-            {
-                foreach (string strDomain in arDomains)
-                {
-                    arDomainName.Add(strDomain + strExtension);
-                }
-            }
-
-            //Query to Godaddy
-            List<DomainInfo> arDomainInfo = new List<DomainInfo>();
-            int iCount = 0, iAvailable = 0;
-            foreach (string strURL in arDomainName)
-            {
-                DomainInfo domainInfo = GodaddyDelegation.CheckDomain(strURL);
-
-                //update to progress
-                iCount++;
-                QueryProgress = iCount * 100 / arDomainName.Count;
-
-                if (domainInfo != null)
-                {
-                    arDomainInfo.Add(domainInfo);
-                    iAvailable++;
-                    
-                    //Render to ListView
-                    AddDomainCallback addDomainCallback = AddDomain;
-                    dgvResultView.Invoke(addDomainCallback, new Object[] { domainInfo });
-
+                    if (clbDomainExtension.GetItemChecked(i))
+                    {
+                        arExtension.Add(clbDomainExtension.GetItemText(clbDomainExtension.Items[i]));
+                    }
                 }
 
-                //update status
-                SetStatusStripCallback setStatusStripCallback = new SetStatusStripCallback(SetStatusStrip);
-                statusBar.Invoke(setStatusStripCallback, new Object[] { arDomainName.Count, iCount, iAvailable });
+                //get all full domain name
+                List<string> arDomainName = new List<string>();
+                foreach (string strExtension in arExtension)
+                {
+                    foreach (string strDomain in arDomains)
+                    {
+                        arDomainName.Add(strDomain + strExtension);
+                    }
+                }
 
+                //Query to Godaddy
+                List<DomainInfo> arDomainInfo = new List<DomainInfo>();
+                int iCount = 0, iAvailable = 0;
+                foreach (string strURL in arDomainName)
+                {
+                    DomainInfo domainInfo = GodaddyDelegation.CheckDomain(strURL);
+
+                    //update to progress
+                    iCount++;
+                    QueryProgress = iCount * 100 / arDomainName.Count;
+
+                    if (domainInfo != null)
+                    {
+                        arDomainInfo.Add(domainInfo);
+                        iAvailable++;
+
+                        //Render to ListView
+                        AddDomainCallback addDomainCallback = AddDomain;
+                        dgvResultView.Invoke(addDomainCallback, new Object[] { domainInfo });
+
+                    }
+
+                    //update status
+                    SetStatusStripCallback setStatusStripCallback = new SetStatusStripCallback(SetStatusStrip);
+                    statusBar.Invoke(setStatusStripCallback, new Object[] { arDomainName.Count, iCount, iAvailable });
+
+
+                }
+
+                QueryButtonEnabled = true;
 
             }
+            catch (AnalyseException analyseException)
+            {
+                ShowAnalyseExceptionCallback showAnalyseExceptionCallback = new ShowAnalyseExceptionCallback(ShowAnalyseException);
+                this.Invoke(showAnalyseExceptionCallback, new Object[] { analyseException });
+                QueryButtonEnabled = true;
+            }
 
-            QueryButtonEnabled = true;
         }
 
         private void btnQuery_Click(object sender, EventArgs e)

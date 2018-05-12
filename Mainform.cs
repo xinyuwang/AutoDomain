@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoDomain.analyzer;
+using System.IO;
 
 namespace AutoDomain
 {
@@ -233,6 +234,26 @@ namespace AutoDomain
                 clbDomainExtension.SetItemChecked(i, cbAllDomains.Checked);
             }
 
+        }
+
+        private void rightMenuSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = ".txt|.txt";
+            saveFileDialog.FileOk += SaveFileDialog_FileOk;
+        }
+
+        private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = (SaveFileDialog)sender;
+
+            List<string> arLines = new List<string>();
+            for (int i = 0; i < dgvResultView.Rows.Count; i++)
+            {
+                arLines.Add(dgvResultView.Rows[i].Cells[0].Value.ToString() + " " + dgvResultView.Rows[i].Cells[1].Value.ToString());
+            }
+
+            File.WriteAllLines(saveFileDialog.FileName, arLines);
         }
     }
 }

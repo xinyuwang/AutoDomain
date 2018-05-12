@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDomains = new System.Windows.Forms.GroupBox();
@@ -50,6 +51,8 @@
             this.staProgress = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsPercent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.rightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rightMenuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDomains.SuspendLayout();
@@ -58,6 +61,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultView)).BeginInit();
             this.statusBar.SuspendLayout();
+            this.rightClickMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -279,6 +283,7 @@
             this.dgvResultView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
+            this.dgvResultView.ContextMenuStrip = this.rightClickMenu;
             this.dgvResultView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResultView.Location = new System.Drawing.Point(3, 2);
             this.dgvResultView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -345,6 +350,21 @@
             this.tsPercent.Name = "tsPercent";
             this.tsPercent.Size = new System.Drawing.Size(0, 20);
             // 
+            // rightClickMenu
+            // 
+            this.rightClickMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.rightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rightMenuSave});
+            this.rightClickMenu.Name = "rightClickMenu";
+            this.rightClickMenu.Size = new System.Drawing.Size(211, 56);
+            // 
+            // rightMenuSave
+            // 
+            this.rightMenuSave.Name = "rightMenuSave";
+            this.rightMenuSave.Size = new System.Drawing.Size(210, 24);
+            this.rightMenuSave.Text = "&Save";
+            this.rightMenuSave.Click += new System.EventHandler(this.rightMenuSave_Click);
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -370,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultView)).EndInit();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
+            this.rightClickMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,6 +420,8 @@
         private System.Windows.Forms.ToolStripStatusLabel staProgress;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel tsPercent;
+        private System.Windows.Forms.ContextMenuStrip rightClickMenu;
+        private System.Windows.Forms.ToolStripMenuItem rightMenuSave;
     }
 }
 

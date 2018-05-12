@@ -25,6 +25,7 @@ namespace AutoDomain.analyzer
                 //Replace Google Top N words
                 //[G500]{3-4} Google Top 500, Length from 3 to 4
                 // \[G(\d+?)\]({(\d+)(-(\d+))?})?
+                //Only 9897 Number
                 List<List<string>> arMatchResults = RegexHelper.Match(@"\[G(\d+?)\]({(\d+)(-(\d+))?})?", strPadding);
 
                 foreach (List<string> arList in arMatchResults)
@@ -62,6 +63,12 @@ namespace AutoDomain.analyzer
                     }
 
                     List<string> arTempResult = new List<string>();
+
+                    //Max 9897 numbers
+                    if (iTop > 9897)
+                    {
+                        throw new AnalyseException("in [Gn], n must be between 1 to 9897;");
+                    }
 
                     //TOP iTop
                     for (int i = 0; i < iTop; i++)

@@ -31,7 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDomains = new System.Windows.Forms.GroupBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.clbDomainExtension = new System.Windows.Forms.CheckedListBox();
             this.cbAllDomains = new System.Windows.Forms.CheckBox();
             this.pbQuery = new System.Windows.Forms.ProgressBar();
             this.gbPaddingwords = new System.Windows.Forms.GroupBox();
@@ -85,7 +85,7 @@
             // 
             // gbDomains
             // 
-            this.gbDomains.Controls.Add(this.checkedListBox1);
+            this.gbDomains.Controls.Add(this.clbDomainExtension);
             this.gbDomains.Controls.Add(this.cbAllDomains);
             this.gbDomains.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.gbDomains.Location = new System.Drawing.Point(1307, 23);
@@ -95,12 +95,12 @@
             this.gbDomains.TabStop = false;
             this.gbDomains.Text = "Domains";
             // 
-            // checkedListBox1
+            // clbDomainExtension
             // 
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.clbDomainExtension.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbDomainExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbDomainExtension.FormattingEnabled = true;
+            this.clbDomainExtension.Items.AddRange(new object[] {
             ".co",
             ".vip",
             ".net.cn",
@@ -121,10 +121,10 @@
             ".buzz",
             ".studio",
             ".cash"});
-            this.checkedListBox1.Location = new System.Drawing.Point(33, 56);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(389, 897);
-            this.checkedListBox1.TabIndex = 8;
+            this.clbDomainExtension.Location = new System.Drawing.Point(33, 56);
+            this.clbDomainExtension.Name = "clbDomainExtension";
+            this.clbDomainExtension.Size = new System.Drawing.Size(389, 897);
+            this.clbDomainExtension.TabIndex = 8;
             // 
             // cbAllDomains
             // 
@@ -261,8 +261,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 25);
-            this.toolStripStatusLabel1.Text = "State:";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(161, 25);
+            this.toolStripStatusLabel1.Text = "Possible Domains :";
             // 
             // Mainform
             // 
@@ -309,7 +309,7 @@
         private System.Windows.Forms.GroupBox gbDomains;
         private System.Windows.Forms.CheckBox cbAllDomains;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clbDomainExtension;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

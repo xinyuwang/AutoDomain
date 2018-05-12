@@ -48,8 +48,8 @@ namespace AutoDomain.analyzer
 
                     try
                     {
-                        iBeg = Int32.Parse(arList[3]);
-                        iEnd = arList[5] == "" ? iBeg : Int32.Parse(arList[5]);
+                        iBeg = arList[3] == "" ? -1 : Int32.Parse(arList[3]);
+                        iEnd = arList[5] == "" ? 9999 : Int32.Parse(arList[5]);
                     }
                     catch
                     {

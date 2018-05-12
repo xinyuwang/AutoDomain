@@ -53,7 +53,7 @@ namespace AutoDomain.analyzer
                     try
                     {
                         iNumFrom = arList[4] == "" ? 1 : Int32.Parse(arList[4]);
-                        iNumTo = arList[6] == "" ? iNumFrom + 1 : Int32.Parse(arList[6]);
+                        iNumTo = arList[6] == "" ? iNumFrom : Int32.Parse(arList[6]);
                     }
                     catch
                     {
@@ -61,31 +61,39 @@ namespace AutoDomain.analyzer
                     }
 
 
-                    if (iNumTo <= iNumFrom)
+                    if (iNumTo < iNumFrom)
                     {
                         throw new AnalyseException("in {a-b}, b must above a; if a equal to b, please use {a} instead;");
                     }
 
                     List<string> arTempResult = new List<string>();
 
-                    for (int i = iBeg; i < iEnd; i++)
+                    //From 1 times
+                    List<string> arPrefix = new List<string>() { "" };
+                    for (int iNum = 1; iNum <= iNumTo; iNum++)
                     {
-                        string strReplace = i.ToString();
-
-                        //From 1 times
-                        for (int iNum = 1; iNum < iNumTo; iNum++)
+                        List<string> arTempPrefix = new List<string>();
+                        foreach (string strPrefix in arPrefix)
                         {
-                            //check times
-                            if (iNum >= iNumFrom)
+                            for (int i = iBeg; i <= iEnd; i++)
                             {
-                                foreach (string padding in arProcessPerPadding)
-                                {
-                                    arTempResult.Add(padding.Replace(arList[0], strReplace));
-                                }
-                            }
+                                string prefix = strPrefix + i.ToString();
+                                arTempPrefix.Add(prefix);
 
-                            strReplace += strReplace;
+                                //check times
+                                if (iNum >= iNumFrom)
+                                {
+                                    foreach (string padding in arProcessPerPadding)
+                                    {
+                                        arTempResult.Add(padding.Replace(arList[0], prefix));
+                                    }
+                                }
+
+                            }
                         }
+
+                        arPrefix = arTempPrefix;
+
                     }
 
                     arProcessPerPadding = arTempResult;

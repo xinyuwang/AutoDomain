@@ -41,19 +41,22 @@
             this.rtbKeywords = new System.Windows.Forms.RichTextBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvResultView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tspbQuery = new System.Windows.Forms.ToolStripProgressBar();
+            this.staProgress = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDomains.SuspendLayout();
             this.gbPaddingwords.SuspendLayout();
             this.gbKeywords.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultView)).BeginInit();
+            this.statusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,9 +66,10 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1792, 1286);
+            this.tabControl1.Size = new System.Drawing.Size(1593, 1029);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -75,10 +79,11 @@
             this.tabPage1.Controls.Add(this.gbPaddingwords);
             this.tabPage1.Controls.Add(this.gbKeywords);
             this.tabPage1.Controls.Add(this.btnQuery);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1784, 1244);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1585, 991);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "  QueryPanel  ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -88,9 +93,11 @@
             this.gbDomains.Controls.Add(this.clbDomainExtension);
             this.gbDomains.Controls.Add(this.cbAllDomains);
             this.gbDomains.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.gbDomains.Location = new System.Drawing.Point(1307, 23);
+            this.gbDomains.Location = new System.Drawing.Point(1162, 18);
+            this.gbDomains.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbDomains.Name = "gbDomains";
-            this.gbDomains.Size = new System.Drawing.Size(450, 1050);
+            this.gbDomains.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbDomains.Size = new System.Drawing.Size(400, 840);
             this.gbDomains.TabIndex = 10;
             this.gbDomains.TabStop = false;
             this.gbDomains.Text = "Domains";
@@ -98,49 +105,85 @@
             // clbDomainExtension
             // 
             this.clbDomainExtension.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clbDomainExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbDomainExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.clbDomainExtension.FormattingEnabled = true;
             this.clbDomainExtension.Items.AddRange(new object[] {
-            ".co",
+            ".net",
+            ".info",
+            ".online",
+            ".org",
+            ".pro",
             ".vip",
+            ".co",
+            ".io",
+            ".me",
+            ".cc",
             ".net.cn",
             ".org.cn",
-            ".media",
             ".club",
-            ".ca",
+            ".com.cn",
+            ".cloud",
+            ".media",
+            ".work",
+            ".co.uk",
+            ".store",
+            ".mobi",
+            ".biz",
+            ".com",
+            ".xyz",
+            ".love",
+            ".ltd",
             ".today",
             ".life",
-            ".com",
             ".shop",
             ".world",
-            ".com.cn",
+            ".app",
             ".global",
             ".dance",
+            ".one",
             ".company",
             ".city",
+            ".space",
             ".buzz",
             ".studio",
-            ".cash"});
-            this.clbDomainExtension.Location = new System.Drawing.Point(33, 56);
+            ".support",
+            ".design",
+            ".moe",
+            ".apartments",
+            ".us",
+            ".tv",
+            ".in",
+            ".com.tw",
+            ".ca",
+            ".jp",
+            ".tw",
+            ".com.au",
+            ".fr",
+            ".it"});
+            this.clbDomainExtension.Location = new System.Drawing.Point(29, 45);
+            this.clbDomainExtension.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clbDomainExtension.Name = "clbDomainExtension";
-            this.clbDomainExtension.Size = new System.Drawing.Size(389, 897);
+            this.clbDomainExtension.Size = new System.Drawing.Size(346, 700);
             this.clbDomainExtension.TabIndex = 8;
             // 
             // cbAllDomains
             // 
             this.cbAllDomains.AutoSize = true;
-            this.cbAllDomains.Location = new System.Drawing.Point(33, 978);
+            this.cbAllDomains.Location = new System.Drawing.Point(29, 782);
+            this.cbAllDomains.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbAllDomains.Name = "cbAllDomains";
-            this.cbAllDomains.Size = new System.Drawing.Size(291, 36);
+            this.cbAllDomains.Size = new System.Drawing.Size(247, 33);
             this.cbAllDomains.TabIndex = 6;
             this.cbAllDomains.Text = "All support domains";
             this.cbAllDomains.UseVisualStyleBackColor = true;
+            this.cbAllDomains.CheckedChanged += new System.EventHandler(this.cbAllDomains_CheckedChanged);
             // 
             // pbQuery
             // 
-            this.pbQuery.Location = new System.Drawing.Point(228, 1116);
+            this.pbQuery.Location = new System.Drawing.Point(203, 893);
+            this.pbQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbQuery.Name = "pbQuery";
-            this.pbQuery.Size = new System.Drawing.Size(1501, 59);
+            this.pbQuery.Size = new System.Drawing.Size(1334, 47);
             this.pbQuery.TabIndex = 9;
             // 
             // gbPaddingwords
@@ -148,9 +191,11 @@
             this.gbPaddingwords.Controls.Add(this.label1);
             this.gbPaddingwords.Controls.Add(this.rtbPaddingwords);
             this.gbPaddingwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.gbPaddingwords.Location = new System.Drawing.Point(25, 479);
+            this.gbPaddingwords.Location = new System.Drawing.Point(22, 383);
+            this.gbPaddingwords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbPaddingwords.Name = "gbPaddingwords";
-            this.gbPaddingwords.Size = new System.Drawing.Size(1248, 594);
+            this.gbPaddingwords.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbPaddingwords.Size = new System.Drawing.Size(1109, 475);
             this.gbPaddingwords.TabIndex = 8;
             this.gbPaddingwords.TabStop = false;
             this.gbPaddingwords.Text = "Padding Words";
@@ -158,19 +203,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 523);
+            this.label1.Location = new System.Drawing.Point(22, 418);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1022, 32);
+            this.label1.Size = new System.Drawing.Size(1037, 29);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Support basic RegEx, e.g. [0-9]{3};  [G500] => Google Top 500 frequency words;";
+            this.label1.Text = "Support basic RegEx, e.g. [0-9]{3};  [G500] => Google Top 500 frequency words; $ " +
+    "=> keywords;";
             // 
             // rtbPaddingwords
             // 
             this.rtbPaddingwords.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtbPaddingwords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbPaddingwords.Location = new System.Drawing.Point(31, 68);
+            this.rtbPaddingwords.Location = new System.Drawing.Point(28, 54);
+            this.rtbPaddingwords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbPaddingwords.Name = "rtbPaddingwords";
-            this.rtbPaddingwords.Size = new System.Drawing.Size(1191, 417);
+            this.rtbPaddingwords.Size = new System.Drawing.Size(1059, 334);
             this.rtbPaddingwords.TabIndex = 5;
             this.rtbPaddingwords.Text = "";
             // 
@@ -178,9 +225,11 @@
             // 
             this.gbKeywords.Controls.Add(this.rtbKeywords);
             this.gbKeywords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbKeywords.Location = new System.Drawing.Point(25, 23);
+            this.gbKeywords.Location = new System.Drawing.Point(22, 18);
+            this.gbKeywords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbKeywords.Name = "gbKeywords";
-            this.gbKeywords.Size = new System.Drawing.Size(1248, 432);
+            this.gbKeywords.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbKeywords.Size = new System.Drawing.Size(1109, 346);
             this.gbKeywords.TabIndex = 7;
             this.gbKeywords.TabStop = false;
             this.gbKeywords.Text = "Keywords";
@@ -189,18 +238,20 @@
             // 
             this.rtbKeywords.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtbKeywords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbKeywords.Location = new System.Drawing.Point(31, 56);
+            this.rtbKeywords.Location = new System.Drawing.Point(28, 45);
+            this.rtbKeywords.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbKeywords.Name = "rtbKeywords";
-            this.rtbKeywords.Size = new System.Drawing.Size(1191, 345);
+            this.rtbKeywords.Size = new System.Drawing.Size(1059, 277);
             this.rtbKeywords.TabIndex = 3;
             this.rtbKeywords.Text = "";
             // 
             // btnQuery
             // 
             this.btnQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuery.Location = new System.Drawing.Point(56, 1116);
+            this.btnQuery.Location = new System.Drawing.Point(50, 893);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(142, 59);
+            this.btnQuery.Size = new System.Drawing.Size(126, 47);
             this.btnQuery.TabIndex = 6;
             this.btnQuery.Text = "Query";
             this.btnQuery.UseVisualStyleBackColor = true;
@@ -208,30 +259,32 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Controls.Add(this.dgvResultView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1784, 1244);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1585, 991);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "  ResultPanel  ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvResultView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvResultView.AllowUserToAddRows = false;
+            this.dgvResultView.AllowUserToDeleteRows = false;
+            this.dgvResultView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1778, 1238);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvResultView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvResultView.Location = new System.Drawing.Point(3, 2);
+            this.dgvResultView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvResultView.Name = "dgvResultView";
+            this.dgvResultView.ReadOnly = true;
+            this.dgvResultView.RowTemplate.Height = 28;
+            this.dgvResultView.Size = new System.Drawing.Size(1579, 987);
+            this.dgvResultView.TabIndex = 0;
             // 
             // Column1
             // 
@@ -247,30 +300,51 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // statusStrip1
+            // statusBar
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1256);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1792, 30);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusBar.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.tspbQuery,
+            this.toolStripStatusLabel2,
+            this.staProgress});
+            this.statusBar.Location = new System.Drawing.Point(0, 1004);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusBar.Size = new System.Drawing.Size(1593, 25);
+            this.statusBar.TabIndex = 1;
+            this.statusBar.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(161, 25);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 20);
             this.toolStripStatusLabel1.Text = "Possible Domains :";
+            // 
+            // tspbQuery
+            // 
+            this.tspbQuery.Name = "tspbQuery";
+            this.tspbQuery.Size = new System.Drawing.Size(100, 19);
+            // 
+            // staProgress
+            // 
+            this.staProgress.Name = "staProgress";
+            this.staProgress.Size = new System.Drawing.Size(0, 20);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(45, 20);
+            this.toolStripStatusLabel2.Text = "         ";
             // 
             // Mainform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1792, 1286);
-            this.Controls.Add(this.statusStrip1);
+            this.ClientSize = new System.Drawing.Size(1593, 1029);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mainform";
@@ -285,9 +359,9 @@
             this.gbPaddingwords.PerformLayout();
             this.gbKeywords.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultView)).EndInit();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,15 +378,18 @@
         private System.Windows.Forms.RichTextBox rtbPaddingwords;
         private System.Windows.Forms.GroupBox gbPaddingwords;
         private System.Windows.Forms.ProgressBar pbQuery;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.GroupBox gbDomains;
         private System.Windows.Forms.CheckBox cbAllDomains;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox clbDomainExtension;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvResultView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ToolStripProgressBar tspbQuery;
+        private System.Windows.Forms.ToolStripStatusLabel staProgress;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

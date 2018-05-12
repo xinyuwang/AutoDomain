@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="analyzer\AnalyseException.cs" />
     <Compile Include="analyzer\BasicRegexAnalyzer.cs" />
+    <Compile Include="analyzer\GoogleTopWordsAnalyzer.cs" />
     <Compile Include="analyzer\IAnalyse.cs" />
     <Compile Include="Mainform.cs">
       <SubType>Form</SubType>
@@ -88,7 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\Newtonsoft.Json.dll" />
-    <Content Include="resource\google-10000-english-no-swears.txt" />
+    <Content Include="resource\google-10000-english-no-swears.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

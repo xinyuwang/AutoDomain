@@ -9,7 +9,9 @@ namespace AutoDomain.analyzer
     interface IAnalyse
     {
 
-        List<string> analyse(string strPadding);
+        List<string> analyse(List<string> arPadding);
+
+        void init();
 
     }
 }

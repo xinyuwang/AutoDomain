@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoDomain.analyzer;
 
 namespace AutoDomain
 {
@@ -43,14 +44,22 @@ namespace AutoDomain
         }
 
 
-        private List<String> analyzePadding(string padding)
+        private List<String> analyzePadding(List<string> arPadding)
         {
-            List<string> ret = new List<string>();
+            List<string> ret = arPadding;
 
+            IAnalyse[] arIAnalyse = new IAnalyse[] { new BasicRegexAnalyzer(), new GoogleTopWordsAnalyzer() };
 
+            foreach (IAnalyse iAnalyse in arIAnalyse)
+            {
+                iAnalyse.init();
+                ret = iAnalyse.analyse(ret);
+            }
+
+            return ret;
 
         }
-        
+
 
         private void btnQuery_Click(object sender, EventArgs e)
         {

@@ -9,20 +9,25 @@ namespace RuleAnalysis
     class RegexHelper
     {
 
-        public static string MatchSingle(string sRegex, string sContent)
+        public static List<List<string>> Match(string sRegex, string sContent)
         {
-
+            List<string> retList = new List<string>();
             Regex reg = new Regex(sRegex);
-            Match m = reg.Match(sContent);
+            MatchCollection mc = reg.Matches(sContent);
 
-            if (null != m)
+            List<List<string>> listResult = new List<List<string>>(); 
+
+            foreach (Match m in mc)
             {
-                return m.Groups[1].Value;
+                List<string> result = new List<string>();
+                for(int i = 0; i < m.Groups.Count; i++) 
+                {
+                    result.Add(m.Groups[i].Value);
+                }
+                listResult.Add(result);
             }
-            else
-            {
-                return "";
-            }
+
+            return listResult;
 
         }
 
@@ -42,24 +47,6 @@ namespace RuleAnalysis
                 }
             }
             return iCnt;
-        }
-
-
-        public static List<string> MatchMulti(string sRegex, string sContent)
-        {
-
-            Regex reg = new Regex(sRegex);
-            MatchCollection mc = reg.Matches(sContent);
-
-            List<string> retList = new List<string>();
-
-            foreach (Match m in mc)
-            {
-                retList.Add(m.Groups[1].Value);
-            }
-
-            return retList;
-
         }
 
 

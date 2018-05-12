@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace RuleAnalysis
+namespace AutoDomain.utils
 {
     class RegexHelper
     {

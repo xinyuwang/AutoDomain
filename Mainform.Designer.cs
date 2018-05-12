@@ -30,30 +30,30 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.rtbKeywords = new System.Windows.Forms.RichTextBox();
-            this.rtbPaddingwords = new System.Windows.Forms.RichTextBox();
-            this.btnQuery = new System.Windows.Forms.Button();
-            this.gbKeywords = new System.Windows.Forms.GroupBox();
-            this.gbPaddingwords = new System.Windows.Forms.GroupBox();
-            this.pbQuery = new System.Windows.Forms.ProgressBar();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbDomains = new System.Windows.Forms.GroupBox();
-            this.cbAllDomains = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.cbAllDomains = new System.Windows.Forms.CheckBox();
+            this.pbQuery = new System.Windows.Forms.ProgressBar();
+            this.gbPaddingwords = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rtbPaddingwords = new System.Windows.Forms.RichTextBox();
+            this.gbKeywords = new System.Windows.Forms.GroupBox();
+            this.rtbKeywords = new System.Windows.Forms.RichTextBox();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.gbKeywords.SuspendLayout();
-            this.gbPaddingwords.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.gbDomains.SuspendLayout();
+            this.gbPaddingwords.SuspendLayout();
+            this.gbKeywords.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,100 +77,11 @@
             this.tabPage1.Controls.Add(this.btnQuery);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1784, 1244);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "  QueryPanel  ";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1784, 1244);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "  ResultPanel  ";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // rtbKeywords
-            // 
-            this.rtbKeywords.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtbKeywords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbKeywords.Location = new System.Drawing.Point(31, 56);
-            this.rtbKeywords.Name = "rtbKeywords";
-            this.rtbKeywords.Size = new System.Drawing.Size(1191, 345);
-            this.rtbKeywords.TabIndex = 3;
-            this.rtbKeywords.Text = "";
-            // 
-            // rtbPaddingwords
-            // 
-            this.rtbPaddingwords.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtbPaddingwords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbPaddingwords.Location = new System.Drawing.Point(31, 68);
-            this.rtbPaddingwords.Name = "rtbPaddingwords";
-            this.rtbPaddingwords.Size = new System.Drawing.Size(1191, 417);
-            this.rtbPaddingwords.TabIndex = 5;
-            this.rtbPaddingwords.Text = "";
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuery.Location = new System.Drawing.Point(56, 1116);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(142, 59);
-            this.btnQuery.TabIndex = 6;
-            this.btnQuery.Text = "Query";
-            this.btnQuery.UseVisualStyleBackColor = true;
-            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
-            // 
-            // gbKeywords
-            // 
-            this.gbKeywords.Controls.Add(this.rtbKeywords);
-            this.gbKeywords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbKeywords.Location = new System.Drawing.Point(25, 23);
-            this.gbKeywords.Name = "gbKeywords";
-            this.gbKeywords.Size = new System.Drawing.Size(1248, 432);
-            this.gbKeywords.TabIndex = 7;
-            this.gbKeywords.TabStop = false;
-            this.gbKeywords.Text = "Keywords";
-            // 
-            // gbPaddingwords
-            // 
-            this.gbPaddingwords.Controls.Add(this.label1);
-            this.gbPaddingwords.Controls.Add(this.rtbPaddingwords);
-            this.gbPaddingwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.gbPaddingwords.Location = new System.Drawing.Point(25, 479);
-            this.gbPaddingwords.Name = "gbPaddingwords";
-            this.gbPaddingwords.Size = new System.Drawing.Size(1248, 594);
-            this.gbPaddingwords.TabIndex = 8;
-            this.gbPaddingwords.TabStop = false;
-            this.gbPaddingwords.Text = "Padding Words";
-            // 
-            // pbQuery
-            // 
-            this.pbQuery.Location = new System.Drawing.Point(228, 1116);
-            this.pbQuery.Name = "pbQuery";
-            this.pbQuery.Size = new System.Drawing.Size(1501, 59);
-            this.pbQuery.TabIndex = 9;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1256);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1792, 30);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 25);
-            this.toolStripStatusLabel1.Text = "State:";
             // 
             // gbDomains
             // 
@@ -183,25 +94,6 @@
             this.gbDomains.TabIndex = 10;
             this.gbDomains.TabStop = false;
             this.gbDomains.Text = "Domains";
-            // 
-            // cbAllDomains
-            // 
-            this.cbAllDomains.AutoSize = true;
-            this.cbAllDomains.Location = new System.Drawing.Point(33, 978);
-            this.cbAllDomains.Name = "cbAllDomains";
-            this.cbAllDomains.Size = new System.Drawing.Size(291, 36);
-            this.cbAllDomains.TabIndex = 6;
-            this.cbAllDomains.Text = "All support domains";
-            this.cbAllDomains.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 523);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1029, 32);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Support basic RegEx, e.g. [0~9]{3};  [G500] => Google Top 500 frequency words;";
             // 
             // checkedListBox1
             // 
@@ -234,6 +126,97 @@
             this.checkedListBox1.Size = new System.Drawing.Size(389, 897);
             this.checkedListBox1.TabIndex = 8;
             // 
+            // cbAllDomains
+            // 
+            this.cbAllDomains.AutoSize = true;
+            this.cbAllDomains.Location = new System.Drawing.Point(33, 978);
+            this.cbAllDomains.Name = "cbAllDomains";
+            this.cbAllDomains.Size = new System.Drawing.Size(291, 36);
+            this.cbAllDomains.TabIndex = 6;
+            this.cbAllDomains.Text = "All support domains";
+            this.cbAllDomains.UseVisualStyleBackColor = true;
+            // 
+            // pbQuery
+            // 
+            this.pbQuery.Location = new System.Drawing.Point(228, 1116);
+            this.pbQuery.Name = "pbQuery";
+            this.pbQuery.Size = new System.Drawing.Size(1501, 59);
+            this.pbQuery.TabIndex = 9;
+            // 
+            // gbPaddingwords
+            // 
+            this.gbPaddingwords.Controls.Add(this.label1);
+            this.gbPaddingwords.Controls.Add(this.rtbPaddingwords);
+            this.gbPaddingwords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.gbPaddingwords.Location = new System.Drawing.Point(25, 479);
+            this.gbPaddingwords.Name = "gbPaddingwords";
+            this.gbPaddingwords.Size = new System.Drawing.Size(1248, 594);
+            this.gbPaddingwords.TabIndex = 8;
+            this.gbPaddingwords.TabStop = false;
+            this.gbPaddingwords.Text = "Padding Words";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 523);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1022, 32);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Support basic RegEx, e.g. [0-9]{3};  [G500] => Google Top 500 frequency words;";
+            // 
+            // rtbPaddingwords
+            // 
+            this.rtbPaddingwords.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtbPaddingwords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbPaddingwords.Location = new System.Drawing.Point(31, 68);
+            this.rtbPaddingwords.Name = "rtbPaddingwords";
+            this.rtbPaddingwords.Size = new System.Drawing.Size(1191, 417);
+            this.rtbPaddingwords.TabIndex = 5;
+            this.rtbPaddingwords.Text = "";
+            // 
+            // gbKeywords
+            // 
+            this.gbKeywords.Controls.Add(this.rtbKeywords);
+            this.gbKeywords.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbKeywords.Location = new System.Drawing.Point(25, 23);
+            this.gbKeywords.Name = "gbKeywords";
+            this.gbKeywords.Size = new System.Drawing.Size(1248, 432);
+            this.gbKeywords.TabIndex = 7;
+            this.gbKeywords.TabStop = false;
+            this.gbKeywords.Text = "Keywords";
+            // 
+            // rtbKeywords
+            // 
+            this.rtbKeywords.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtbKeywords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbKeywords.Location = new System.Drawing.Point(31, 56);
+            this.rtbKeywords.Name = "rtbKeywords";
+            this.rtbKeywords.Size = new System.Drawing.Size(1191, 345);
+            this.rtbKeywords.TabIndex = 3;
+            this.rtbKeywords.Text = "";
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuery.Location = new System.Drawing.Point(56, 1116);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(142, 59);
+            this.btnQuery.TabIndex = 6;
+            this.btnQuery.Text = "Query";
+            this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1784, 1244);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "  ResultPanel  ";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -264,6 +247,23 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1256);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1792, 30);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 25);
+            this.toolStripStatusLabel1.Text = "State:";
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -279,15 +279,15 @@
             this.Load += new System.EventHandler(this.Mainform_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.gbKeywords.ResumeLayout(false);
-            this.gbPaddingwords.ResumeLayout(false);
-            this.gbPaddingwords.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.gbDomains.ResumeLayout(false);
             this.gbDomains.PerformLayout();
+            this.gbPaddingwords.ResumeLayout(false);
+            this.gbPaddingwords.PerformLayout();
+            this.gbKeywords.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

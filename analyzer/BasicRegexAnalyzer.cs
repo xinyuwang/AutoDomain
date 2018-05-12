@@ -19,6 +19,7 @@ namespace AutoDomain.analyzer
 
             foreach (string strPadding in arPadding)
             {
+                List<string> arProcessPerPadding = new List<string> { strPadding };
 
                 // Analyse [0-9]{3} => string
                 // Support [begNumber - endNumber]{begTimes - endTimes}
@@ -27,6 +28,7 @@ namespace AutoDomain.analyzer
 
                 foreach (List<string> arList in arMatchResults)
                 {
+
                     int iBeg, iEnd, iNumFrom, iNumTo;
 
                     try
@@ -64,18 +66,33 @@ namespace AutoDomain.analyzer
                         throw new AnalyseException("in {a-b}, b must above a; if a equal to b, please use {a} instead;");
                     }
 
+                    List<string> arTempResult = new List<string>();
+
                     for (int i = iBeg; i < iEnd; i++)
                     {
                         string strReplace = i.ToString();
 
-                        for (int iNum = iNumFrom; iNum < iNumTo; iNum++)
+                        //From 1 times
+                        for (int iNum = 1; iNum < iNumTo; iNum++)
                         {
-                            arProcessResult.Add(strPadding.Replace(arList[0], strReplace));
+                            //check times
+                            if (iNum >= iNumFrom)
+                            {
+                                foreach (string padding in arProcessPerPadding)
+                                {
+                                    arTempResult.Add(padding.Replace(arList[0], strReplace));
+                                }
+                            }
+
                             strReplace += strReplace;
                         }
                     }
 
+                    arProcessPerPadding = arTempResult;
+
                 }
+
+                arProcessResult.AddRange(arProcessPerPadding);
 
             }
 

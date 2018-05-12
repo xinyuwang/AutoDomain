@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace AutoDomain.analyzer
 {
     class GoogleTopWordsAnalyzer : IAnalyse
     {
-        private List<string> arGoogleTopWords;
+        private string[] arGoogleTopWords;
 
         public List<string> analyse(List<string> arPadding)
         {
@@ -18,6 +19,8 @@ namespace AutoDomain.analyzer
 
             foreach (string strPadding in arPadding)
             {
+
+                List<string> arProcessPerPadding = new List<string> { strPadding };
 
                 //Replace Google Top N words
                 //[G500]{3-4} Google Top 500, Length from 3 to 4
@@ -58,10 +61,28 @@ namespace AutoDomain.analyzer
                         throw new AnalyseException("in {a-b}, b must equal or above a;");
                     }
 
+                    List<string> arTempResult = new List<string>();
 
+                    //TOP iTop
+                    for (int i = 0; i < iTop; i++)
+                    {
+                        //check length between iBeg to iEnd
+                        if (arGoogleTopWords[i].Length >= iBeg && arGoogleTopWords[i].Length <= iEnd)
+                        {
 
+                            foreach (string padding in arProcessPerPadding)
+                            {
+                                arTempResult.Add(padding.Replace(arList[0], arGoogleTopWords[i]));
+                            }
+
+                        }
+                    }
+
+                    arProcessPerPadding = arTempResult;
 
                 }
+
+                arProcessResult.AddRange(arProcessPerPadding);
 
             }
 
@@ -71,9 +92,7 @@ namespace AutoDomain.analyzer
 
         public void init()
         {
-            arGoogleTopWords = new List<string>();
-
-
+            arGoogleTopWords = File.ReadAllLines(@"resource\google-10000-english-no-swears.txt");
         }
     }
 }

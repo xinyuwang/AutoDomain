@@ -74,11 +74,22 @@ namespace AutoDomain
             //get paddingwords
             List<string> arPadding = new List<string>();
 
-            for (int i = 0; i < rtbKeywords.Lines.Count(); i++)
+            for (int i = 0; i < rtbPaddingwords.Lines.Count(); i++)
             {
-                arKeywords.AddRange(rtbKeywords.Lines[i].Split(' '));
+                arPadding.AddRange(rtbPaddingwords.Lines[i].Split(' '));
             }
 
+            //process padding words
+            arPadding = analyzePadding(arPadding);
+
+            List<string> arDomains = new List<string>();
+            foreach(string strKeyword in arKeywords)
+            {
+                foreach(string strPadding in arPadding)
+                {
+                    arDomains.Add(strPadding.Replace("$", strKeyword));
+                }
+            }
 
 
 

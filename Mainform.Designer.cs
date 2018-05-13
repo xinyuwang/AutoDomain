@@ -53,6 +53,7 @@
             this.tsPercent = new System.Windows.Forms.ToolStripStatusLabel();
             this.rightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.rightMenuSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightMenuClear = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDomains.SuspendLayout();
@@ -354,9 +355,10 @@
             // 
             this.rightClickMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.rightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rightMenuSave});
+            this.rightMenuSave,
+            this.rightMenuClear});
             this.rightClickMenu.Name = "rightClickMenu";
-            this.rightClickMenu.Size = new System.Drawing.Size(211, 56);
+            this.rightClickMenu.Size = new System.Drawing.Size(211, 80);
             // 
             // rightMenuSave
             // 
@@ -364,6 +366,13 @@
             this.rightMenuSave.Size = new System.Drawing.Size(210, 24);
             this.rightMenuSave.Text = "&Save";
             this.rightMenuSave.Click += new System.EventHandler(this.rightMenuSave_Click);
+            // 
+            // rightMenuClear
+            // 
+            this.rightMenuClear.Name = "rightMenuClear";
+            this.rightMenuClear.Size = new System.Drawing.Size(210, 24);
+            this.rightMenuClear.Text = "&Clear";
+            this.rightMenuClear.Click += new System.EventHandler(this.rightMenuClear_Click);
             // 
             // Mainform
             // 
@@ -422,6 +431,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tsPercent;
         private System.Windows.Forms.ContextMenuStrip rightClickMenu;
         private System.Windows.Forms.ToolStripMenuItem rightMenuSave;
+        private System.Windows.Forms.ToolStripMenuItem rightMenuClear;
     }
 }
 

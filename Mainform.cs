@@ -258,5 +258,10 @@ namespace AutoDomain
 
             File.WriteAllLines(saveFileDialog.FileName, arLines);
         }
+
+        private void rightMenuClear_Click(object sender, EventArgs e)
+        {
+            dgvResultView.Invoke(new ClearAllDomainCallback(ClearAllDomain));
+        }
     }
 }

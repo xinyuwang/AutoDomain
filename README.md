@@ -6,7 +6,7 @@ Support Google Top frequency words, e.g. [G1200]{3-4} Top 1200 words, length bet
 
 You can also implement your own analyzer (IAnalyse), to add more support;
 
--Use case
+# How to use
 
 Put keywords or leave blank(only use padding) [Split by blank or newline]
 write your padding words.
